@@ -1,6 +1,6 @@
 <?php
 
-namespace Garret\LabelMaker\controllers;
+namespace Garret\LabelMaker\Renders;
 
 class RenderController
 {
