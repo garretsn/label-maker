@@ -1,13 +1,13 @@
 <?php
 
-namespace Garret\LabelMaker;
+namespace Garret\LabelMaker\controllers;
 
 class RenderController
 {
     public function render()
     {
         ob_start();
-        include(__DIR__.'/views/form.php');
+        include('../views/form.php');
         $applied_template = ob_get_contents();
         ob_end_clean();
 
