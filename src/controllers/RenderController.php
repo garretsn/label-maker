@@ -1,10 +1,10 @@
 <?php
 
-namespace Garret\LabelMaker;
+namespace Garret\LabelMaker\controllers;
 
-class Index
+class RenderController
 {
-    public function greet($greet = "Hello World")
+    public function render()
     {
         ob_start();
         include('view/form.php');
