@@ -7,7 +7,7 @@ class RenderController
     public function render()
     {
         ob_start();
-        include(__DIR__.'../views/form.php');
+        include($_SERVER['DOCUMENT_ROOT']);
         $applied_template = ob_get_contents();
         ob_end_clean();
 
