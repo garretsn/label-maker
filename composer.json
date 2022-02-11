@@ -1,0 +1,19 @@
+{
+    "name": "garret/label-maker",
+    "description": "demo package",
+    "type": "package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Garret\\LabelMaker\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "garretsn",
+            "email": "garretsn@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
