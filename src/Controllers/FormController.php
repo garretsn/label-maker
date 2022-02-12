@@ -4,7 +4,7 @@ namespace Garret\LabelMaker\Controllers;
 
 class FormController
 {
-    public function formData($data)
+    public function generateLabel($data)
     {
         if ( !$this->validation($data)) {
             print_r('Not valid input, cannot generate label');
