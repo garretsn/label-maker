@@ -1,7 +1,6 @@
 <?php
 namespace Garret\LabelMaker\Renders;
 
-require_once ('form.php');
 if (isset($_POST[ 'submit' ])) {
     print_r($_POST);;
 }
