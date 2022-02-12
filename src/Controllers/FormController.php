@@ -2,27 +2,20 @@
 
 namespace Garret\LabelMaker\Controllers;
 
-use Garret\LabelMaker\Validators\FormValidator;
-
 class FormController
 {
-    public $formValidator;
-
-    public function __construct(FormValidator $formValidator)
+    public function formData($data)
     {
-        $this->formValidator = $formValidator;
-    }
-
-    public function formData($data) //make this generateLabel
-    {
-<<<<<<< HEAD
-        if ( !$this->formValidator->validation($data)) {
+        if ( !$this->validation($data)) {
             print_r('Not valid input, cannot generate label');
             return false;
         }
-        print_r($this->formValidator->validation($data));
+        print_r($this->validation($data));
         return true;
-=======
+    }
+
+    private function validation($data) // this need to return the hash cause it's validated
+    {
         $validationErrors = [];
         $formData         = [];
 
@@ -84,11 +77,11 @@ class FormController
             }
         }
 
-//        if (!empty($validationErrors)) {
-//            print_r('Validation errors');
-//            print_r($validationErrors);
-//            return false;
-//        }
+        if (!empty($validationErrors)) {
+            print_r('Validation errors');
+            print_r($validationErrors);
+            return false;
+        }
 
 
         $hash = $this->generateHash(
@@ -107,7 +100,6 @@ class FormController
             'email' => $formData[ 'email' ],
             'Hash' => $hash
         ];
->>>>>>> parent of f1ed627 (Update FormController.php)
     }
 
     private function generateHash ($firstname, $lastname, $zipcode, $phonenumber, $email) {
@@ -115,5 +107,30 @@ class FormController
         return hash('md5', $largeString);
     }
 
+    private function cleanInput($input)
+    {
+        $input = trim($input);
+        $input = stripslashes($input);
+        $input = htmlspecialchars($input);
 
+        return $input;
+    }
+
+    private function validateStringMaxLength(string $string, int $length)
+    {
+        if (strlen($string) > $length) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private function validateIsStringEmpty(string $string)
+    {
+        if ( ! strlen($string)) {
+            return true;
+        }
+
+        return false;
+    }
 }
