@@ -10,7 +10,8 @@ class FormController
             print_r('Not valid input, cannot generate label');
             return false;
         }
-        return $this->validation($data);
+        print_r($this->validation($data));
+        return true;
     }
 
     private function validation($data) // this need to return the hash cause it's validated
