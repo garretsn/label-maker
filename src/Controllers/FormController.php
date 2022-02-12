@@ -6,7 +6,15 @@ class FormController
 {
     public function formData($data)
     {
-        print_r($data);
+        if(!$this->validation($data)) {
+            print_r('nevalidat');
+        }
 
+    }
+
+    private function validation($data)
+    {
+        print_r($data);
+        return true;
     }
 }
