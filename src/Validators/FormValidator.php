@@ -70,13 +70,12 @@ class FormValidator
             }
         }
 
-//        if (!empty($validationErrors)) {
-//            print_r('Validation errors');
-//            print_r($validationErrors);
-//            return false;
-//        }
-
-
+        if (!empty($validationErrors)) {
+            print_r('Validation errors');
+            print_r($validationErrors);
+            return false;
+        }
+        
         $hash = $this->generateHash(
             $formData[ 'firstname' ],
             $formData[ 'lastname' ],
@@ -86,9 +85,9 @@ class FormValidator
         );
 
         return [
-            'name' => $formData[ 'firstname' ].''.$formData[ 'lastname' ],
+            'name' => $formData[ 'firstname' ].' '.$formData[ 'lastname' ],
             'companyname' => $formData[ 'companyname' ],
-            'address' => $formData[ 'address1' ].''.$formData[ 'address2' ],
+            'address' => $formData[ 'address1' ].' '.$formData[ 'address2' ],
             'phonenumber' => $formData[ 'phonenumber' ],
             'email' => $formData[ 'email' ],
             'Hash' => $hash

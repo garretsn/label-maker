@@ -8,11 +8,6 @@ class FormController
 {
     public $formValidator;
 
-//    public function __construct(array $formValidator)
-//    {
-//        $this->formValidator = $formValidator;
-//    }
-
     public function generateLabel($data) //make this generateLabel
     {
         $this->formValidator = new FormValidator();
@@ -23,8 +18,5 @@ class FormController
         print_r($this->formValidator->validation($data));
         return true;
     }
-
-
-
 
 }
