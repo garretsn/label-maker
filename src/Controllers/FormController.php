@@ -8,7 +8,7 @@ class FormController
 {
     public $formValidator;
 
-    public function generateLabel($data) //make this generateLabel
+    public function generateLabel($data)
     {
         $this->formValidator = new FormValidator();
         if ( !$this->formValidator->validation($data)) {

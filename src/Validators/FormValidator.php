@@ -75,7 +75,7 @@ class FormValidator
             print_r($validationErrors);
             return false;
         }
-        
+
         $hash = $this->generateHash(
             $formData[ 'firstname' ],
             $formData[ 'lastname' ],
