@@ -8,7 +8,7 @@
     <title>Label Generator Form</title>
 </head>
 <body>
-<form action="form.php" method="post">
+<form action="/form.php" method="post">
     <label for="firstname">First name:</label><br>
     <input type="text" id="firstname" name="firstname"><br>
 
