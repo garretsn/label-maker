@@ -1,40 +1,29 @@
 <?php
+/**
+ * Date: 12.02.2022
+ * Time: 16:16
+ */
 
-namespace Garret\LabelMaker\Controllers;
+namespace Garret\LabelMaker\Validators;
 
-class FormController
+class FormValidator
 {
-    public function generateLabel($data)
-    {
-        if ( !$this->validation($data)) {
-            print_r('Not valid input, cannot generate label');
-            return false;
-        }
-        print_r($this->validation($data));
-        return true;
-    }
-
-<<<<<<< HEAD
-    private function validation($data) // this need to return the hash cause it's validated
-=======
-    public function formData($data) //make this generateLabel
->>>>>>> parent of e5b447c (release 1)
+    public function validation($data)
     {
         $validationErrors = [];
         $formData         = [];
 
-        $formData[ 'firstname' ]   = $this->cleanInput($data[ 'firstname' ]); //awb //label
-        $formData[ 'lastname' ]    = $this->cleanInput($data[ 'lastname' ]); //awb // label
-        $formData[ 'companyname' ] = $this->cleanInput($data[ 'companyname' ]); // label
-        $formData[ 'address1' ]    = $this->cleanInput($data[ 'address1' ]); // label
-        $formData[ 'address2' ]    = $this->cleanInput($data[ 'address2' ]); // label
+        $formData[ 'firstname' ]   = $this->cleanInput($data[ 'firstname' ]);
+        $formData[ 'lastname' ]    = $this->cleanInput($data[ 'lastname' ]);
+        $formData[ 'companyname' ] = $this->cleanInput($data[ 'companyname' ]);
+        $formData[ 'address1' ]    = $this->cleanInput($data[ 'address1' ]);
+        $formData[ 'address2' ]    = $this->cleanInput($data[ 'address2' ]);
         $formData[ 'city' ]        = $this->cleanInput($data[ 'city' ]);
         $formData[ 'county' ]      = $this->cleanInput($data[ 'county' ]);
-        $formData[ 'zipcode' ]     = $this->cleanInput($data[ 'zipcode' ]); //awb
+        $formData[ 'zipcode' ]     = $this->cleanInput($data[ 'zipcode' ]);
         $formData[ 'country' ]     = $this->cleanInput($data[ 'country' ]);
-        $formData[ 'phonenumber' ] = $this->cleanInput($data[ 'phonenumber' ]); //awb // label
-        $formData[ 'email' ]       = $this->cleanInput($data[ 'email' ]); //awb
-        // also the hash is //label
+        $formData[ 'phonenumber' ] = $this->cleanInput($data[ 'phonenumber' ]);
+        $formData[ 'email' ]       = $this->cleanInput($data[ 'email' ]);
 
         foreach ($formData as $k => $v) {
 
@@ -81,11 +70,11 @@ class FormController
             }
         }
 
-        if (!empty($validationErrors)) {
-            print_r('Validation errors');
-            print_r($validationErrors);
-            return false;
-        }
+//        if (!empty($validationErrors)) {
+//            print_r('Validation errors');
+//            print_r($validationErrors);
+//            return false;
+//        }
 
 
         $hash = $this->generateHash(
@@ -104,11 +93,6 @@ class FormController
             'email' => $formData[ 'email' ],
             'Hash' => $hash
         ];
-    }
-
-    private function generateHash ($firstname, $lastname, $zipcode, $phonenumber, $email) {
-        $largeString = $firstname.$lastname.$zipcode.$phonenumber.$email;
-        return hash('md5', $largeString);
     }
 
     private function cleanInput($input)
@@ -137,4 +121,10 @@ class FormController
 
         return false;
     }
+
+    private function generateHash ($firstname, $lastname, $zipcode, $phonenumber, $email) {
+        $largeString = $firstname.$lastname.$zipcode.$phonenumber.$email;
+        return hash('md5', $largeString);
+    }
+
 }
