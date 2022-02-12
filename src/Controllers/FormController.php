@@ -14,25 +14,25 @@ class FormController
 
     private function validation($data)
     {
-//        $firstname = $this->cleanInput($data['firstname']);
-//        $lastname = $this->cleanInput($data['lastname']);
-//        $companyname = $this->cleanInput($data['companyname']);
-//        $address1 = $this->cleanInput($data['address1']);
-//        $address2 = $this->cleanInput($data['address2']);
-//        $city = $this->cleanInput($data['city']);
-//        $county = $this->cleanInput($data['county']);
-//        $zipcode = $this->cleanInput($data['zipcode']);
-//        $country = $this->cleanInput($data['country']);
-//        $phonenumber = $this->cleanInput($data['phonenumber']);
-//        $email = $this->cleanInput($data['email']);
-        $formData = $data;
-        array_walk(
-            $formData,
-            function (&$key, $value) {
-                $value = $this->cleanInput($value);
-            }
-        );
+        $validationErrors = [];
+        $formData = [];
+
+        $formData['firstname'] = $this->cleanInput($data['firstname']);
+        $formData['lastname'] = $this->cleanInput($data['lastname']);
+        $formData['companyname'] = $this->cleanInput($data['companyname']);
+        $formData['address1'] = $this->cleanInput($data['address1']);
+        $formData['address2'] = $this->cleanInput($data['address2']);
+        $formData['city'] = $this->cleanInput($data['city']);
+        $formData['county'] = $this->cleanInput($data['county']);
+        $formData['zipcode'] = $this->cleanInput($data['zipcode']);
+        $formData['country'] = $this->cleanInput($data['country']);
+        $formData['phonenumber'] = $this->cleanInput($data['phonenumber']);
+        $formData['email'] = $this->cleanInput($data['email']);
+
         print_r($formData);
+
+
+
 
         return true;
     }
