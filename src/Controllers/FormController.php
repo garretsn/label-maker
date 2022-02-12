@@ -8,13 +8,14 @@ class FormController
 {
     public $formValidator;
 
-    public function __construct(FormValidator $formValidator)
-    {
-        $this->formValidator = $formValidator;
-    }
+//    public function __construct(array $formValidator)
+//    {
+//        $this->formValidator = $formValidator;
+//    }
 
     public function generateLabel($data) //make this generateLabel
     {
+        $this->formValidator = new FormValidator();
         if ( !$this->formValidator->validation($data)) {
             print_r('Not valid input, cannot generate label');
             return false;
