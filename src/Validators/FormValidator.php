@@ -70,12 +70,11 @@ class FormValidator
             }
         }
 
-//        if (!empty($validationErrors)) {
-//            print_r('Validation errors');
-//            print_r($validationErrors);
-//            return false;
-//        }
-
+        if (!empty($validationErrors)) {
+            print_r('Validation errors');
+            print_r($validationErrors);
+            return false;
+        }
 
         $hash = $this->generateHash(
             $formData[ 'firstname' ],
