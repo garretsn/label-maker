@@ -44,7 +44,6 @@ class FormController
             </tbody>
         </table>
         <?php
-//        return true;
     }
 
 }
