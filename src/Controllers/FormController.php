@@ -16,10 +16,8 @@ class FormController
             return false;
         }
 
-
-
-//        print_r($this->formValidator->validation($data));
-        echo ($this->buildTable($this->formValidator->validation($data)));
+        print_r($this->formValidator->validation($data));
+//        echo ($this->buildTable($this->formValidator->validation($data)));
         return true;
     }
 
@@ -46,7 +44,7 @@ class FormController
             </tbody>
         </table>
         <?php
-        return true;
+//        return true;
     }
 
 }
