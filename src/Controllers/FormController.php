@@ -18,11 +18,12 @@ class FormController
 
 
 
-        print_r($this->formValidator->validation($data));
+//        print_r($this->formValidator->validation($data));
+        echo ($this->buildTable($this->formValidator->validation($data)));
         return true;
     }
 
-    public function buildTable ($labelArray)
+    public function buildTable ($items)
     {
         ?>
         <table>
@@ -37,10 +38,15 @@ class FormController
             </tr>
             </thead>
             <tbody>
-
+            <tr>
+            <?php foreach ($items as $item) :?>
+            <td><?= $item ?></td>
+            <?php endforeach; ?>
+            </tr>
             </tbody>
         </table>
         <?php
+        return true;
     }
 
 }
