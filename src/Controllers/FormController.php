@@ -15,8 +15,32 @@ class FormController
             print_r('Not valid input, cannot generate label');
             return false;
         }
+
+
+
         print_r($this->formValidator->validation($data));
         return true;
+    }
+
+    public function buildTable ($labelArray)
+    {
+        ?>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Company Name</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Unique ID</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <?php
     }
 
 }
